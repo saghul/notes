@@ -5,8 +5,9 @@ Welcome to saghul's notes
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   docker
 
 
 Indices and tables
