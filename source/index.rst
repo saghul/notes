@@ -12,4 +12,5 @@ Contents:
 
     debian
     docker
+    raspberrypi
 
