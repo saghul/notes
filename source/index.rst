@@ -8,15 +8,8 @@ so I don't forget things.
 Contents:
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   docker
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+    debian
+    docker
 
