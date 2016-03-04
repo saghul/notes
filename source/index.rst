@@ -12,6 +12,6 @@ Contents:
 
     debian
     docker
-    raspberrypi
+    hardware
     programming
 
