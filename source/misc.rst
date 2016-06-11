@@ -8,6 +8,8 @@ Miscellaneous
 ----------------------------
 
 `Miths about /dev/urandom <http://www.2uo.de/myths-about-urandom/>`_
+`High quality random bits in os.urandom (Python) <https://mail.python.org/pipermail/python-dev/2016-June/144939.html>`_
+`Python random <http://haypo-notes.readthedocs.io/pep_random.html>`_
 
 Syscalls
 --------
