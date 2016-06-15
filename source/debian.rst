@@ -34,3 +34,14 @@ If you want to override the DNS resolvers received over DHCP, add the following 
 
 Adjust accordingly.
 
+
+Install all build dependencies for a source package
+---------------------------------------------------
+
+Sometimes you can't use ``apt-get build-dep`` (the first time you are building the package for example). We are
+going to use ``mk-build-deps`` from the ``devscripts`` package (``equivs`` also needs to be installed.
+
+::
+
+    mk-build-deps -ir -t "apt-get -qq -y --no-install-recommends"
+
