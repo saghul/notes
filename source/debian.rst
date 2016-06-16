@@ -45,3 +45,19 @@ going to use ``mk-build-deps`` from the ``devscripts`` package (``equivs`` also 
 
     mk-build-deps -ir -t "apt-get -qq -y --no-install-recommends"
 
+
+Put a package on hold
+---------------------
+
+Putting a package on hold:
+
+::
+
+    sudo apt-mark hold package
+
+Putting a package out of hold:
+
+::
+
+    sudo apt-mark unhold package
+
