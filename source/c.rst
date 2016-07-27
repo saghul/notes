@@ -24,3 +24,8 @@ Now set some environment variables:
 That's it, you can now compile your library and it will be linked with musl instead of
 glibc.
 
+
+Feature test macros
+-------------------
+
+Interesting article `here <https://criticalindirection.com/2016/07/07/1000/>`_.
