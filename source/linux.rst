@@ -75,3 +75,63 @@ For testing, one might need some 'fake' webcam, here is how to do it.
 
 The `pattern` can be a number between 0 and 16 or the name of a pattern.
 More examples `here <https://github.com/umlaeute/v4l2loopback/wiki/Gstreamer>`_.
+
+
+SMART
+-----
+
+Monitor the hard drives health with SMART. Full guide `here <https://wiki.archlinux.org/index.php/S.M.A.R.T.>`_.
+
+Configuration
+^^^^^^^^^^^^^
+
+The following configuration will:
+
+* Monitor all drives
+* Except the ones in standby
+* Run a short self-test every day between 2-3am, and an extended self test weekly on Saturdays between 3-4am
+* Log temperature changes of 4 degrees or more, log when temp reaches 35 degrees, and log/email a warning when temp reaches 40
+* Alert using `Pushover <https://pushover.net>`_
+
+
+``/etc/smartd.conf``
+
+::
+
+    DEVICESCAN -a -n standby,q -s (S/../.././02|L/../../6/03) -W 4,35,40 -m root -M exec /usr/share/smartmontools/smartd-runner
+
+
+``/etc/smartmontools/run.d/10pushover``
+
+::
+
+    #!/bin/bash
+
+    # Send notification
+    echo "$SMARTD_MESSAGE" | pushover-notify -t "SMART failure: $SMARTD_FAILTYPE"
+
+
+``/usr/local/bin/pushover-notify``
+
+::
+
+    #!/usr/bin/env python
+
+    import argparse
+    import requests
+    import sys
+
+    APP_TOKEN = 'TODO'
+    USER_KEY  = 'TODO'
+    PUSHOVER_URL = 'https://api.pushover.net/1/messages.json'
+
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-t', '--title', help='Title for the notification')
+    args = parser.parse_args()
+
+    title = args.title or ''
+    data = sys.stdin.read()
+
+    payload = {'token': APP_TOKEN, 'user': USER_KEY, 'title': title, 'message': data}
+    requests.post(PUSHOVER_URL, data=payload)
