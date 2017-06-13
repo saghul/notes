@@ -12,6 +12,7 @@ Contents:
 
     debian
     docker
+    git
     hardware
     linux
     programming
