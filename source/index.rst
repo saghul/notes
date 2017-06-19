@@ -17,4 +17,5 @@ Contents:
     linux
     programming
     ssh
+    xcode
 
