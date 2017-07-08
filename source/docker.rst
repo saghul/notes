@@ -37,3 +37,22 @@ you want to use OverlayFS, a systemd drop-in file is needed. Create a file in
 
 .. _Website: http://docker.io/
 
+
+Remove all containers at once
+-----------------------------
+
+Sometimes you gotta start clean.
+
+::
+
+    docker rm -f $(docker ps -a -q)
+
+
+Remove all images at once
+-------------------------
+
+Sometimes you gotta start clean.
+
+::
+
+    docker rmi -f $(docker images -q)
