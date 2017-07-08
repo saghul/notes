@@ -24,3 +24,15 @@ commits in the current branch. We can now use `git am` to apply them:
     git am tmp.patch
 
 And the 3 commits will be applied in the git tree,.
+
+
+Aborting an incorrect amend
+---------------------------
+
+Isn't it annoying when you do a `git commit --amend` when you didn't intent
+to amend? If you are using wim to edit the commit message, you can abort the
+commit by exiting vim like this:
+
+::
+
+    :cq
