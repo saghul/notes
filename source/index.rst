@@ -15,6 +15,7 @@ Contents:
     git
     hardware
     linux
+    openbsd
     programming
     ssh
     xcode
