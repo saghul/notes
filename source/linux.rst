@@ -135,3 +135,29 @@ The following configuration will:
 
     payload = {'token': APP_TOKEN, 'user': USER_KEY, 'title': title, 'message': data}
     requests.post(PUSHOVER_URL, data=payload)
+
+
+CUPS
+----
+
+Sharing a printer without the drivers (raw)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following method facilitates sharing a printer in a network, without having the
+drivers for it. This means the computers wantint to print on it will have to have
+the drivers, but that's ok.
+
+Install CUPS and configure it for remote access (run all these commands as root):
+
+::
+
+    apt install cups
+    usermod -a -G lpadmin pi
+    cupsctl --remote-admin --remote-any
+    systemctl restart cups
+
+Now open http://IP:631 in a browser and chick "add printer". Select the "Raw" make
+and "Raw Queue" as the model.
+
+Install the drivers on the client computer and add the remote printer. Done!
+
