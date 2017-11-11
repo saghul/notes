@@ -161,3 +161,20 @@ and "Raw Queue" as the model.
 
 Install the drivers on the client computer and add the remote printer. Done!
 
+
+chroot
+------
+
+``chroot`` is a great way for repairing a system that won't boot. In order to do so,
+run the following commands from a rescue shell (a Debian installer shell, for example):
+
+::
+
+    # Mount the target in /mnt
+    cd /mnt
+    mount -t proc proc proc/
+    mount --rbind /sys sys/
+    mount --rbind /dev dev/
+    cd ..
+    chroot /mnt /bin/bash
+
