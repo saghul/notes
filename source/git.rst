@@ -36,3 +36,18 @@ commit by exiting vim like this:
 ::
 
     :cq
+
+
+Caching HTTP(S) credentials
+---------------------------
+
+When cloning over HTTP(S) the following can be done so the credentials acre cached
+(by default for 15 minutes) so one doesn't need to enter them all the time:
+
+::
+
+    git config --global credential.helper cache
+
+Reference_.
+
+.. _Reference: https://help.github.com/articles/caching-your-github-password-in-git/
